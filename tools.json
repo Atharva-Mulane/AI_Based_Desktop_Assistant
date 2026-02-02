@@ -1,0 +1,45 @@
+[
+    {
+        "name": "create_file",
+        "description": "Creates a new file, optionally inside a specific folder on the desktop.",
+        "parameters": {
+            "type": "OBJECT",
+            "properties": {
+                "filename": {
+                    "type": "STRING",
+                    "description": "The name of the file to create. e.g., 'my notes.txt'"
+                },
+                "folder": {
+                    "type": "STRING",
+                    "description": "Optional. The folder on the desktop where the file should be created."
+                }
+            },
+            "required": ["filename"]
+        }
+    },
+    { 
+    "name": "get_temperature", 
+    "description": "Finds the current temperature for a specified city.", 
+    "parameters": { 
+        "type": "OBJECT", 
+        "properties": { 
+            "city": { "type": "STRING", "description": "The city name, e.g., 'Mumbai'." } 
+        }, 
+        "required": ["city"] 
+    } 
+    },
+    {
+        "name": "get_time",
+        "description": "Finds the current time in a specific city.",
+        "parameters": {
+            "type": "OBJECT",
+            "properties": {
+                "city": {
+                    "type": "STRING",
+                    "description": "The city for which to find the time. e.g., 'London'"
+                }
+            },
+            "required": ["city"]
+        }
+    }
+]

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luna Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div id="app" class="app">
+        <aside class="sidebar">
+            <div class="brand">Luna</div>
+            <nav class="nav">
+                <button class="nav-item" data-app="browser">Browser</button>
+                <button class="nav-item" data-app="files">File Manager</button>
+                <button class="nav-item" data-app="media">Media Player</button>
+                <button class="nav-item" data-app="system">System Info</button>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="themeToggle" class="icon-btn" title="Toggle theme">🌗</button>
+                <button id="openSettings" class="icon-btn" title="Settings">⚙️</button>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div class="status">
+                    <span id="statusDot" class="dot idle"></span>
+                    <span id="statusText">Idle</span>
+                </div>
+            </header>
+
+            <section class="chat" id="chatPanel" aria-live="polite">
+                <!-- Messages appended here -->
+            </section>
+
+            <footer class="composer">
+                <button id="micBtn" class="mic-btn" aria-label="Hold to speak">
+                    <span class="mic-icon">🎤</span>
+                    <canvas id="waveform" width="140" height="24" class="wave"></canvas>
+                </button>
+                <form id="textForm" class="text-form">
+                    <input id="textInput" class="text-input" placeholder="Type a message..." autocomplete="off" />
+                    <button class="send-btn" aria-label="Send">➤</button>
+                </form>
+            </footer>
+        </main>
+    </div>
+
+    <div id="settings" class="settings-drawer" aria-hidden="true">
+        <div class="settings-header">
+            <h2>Settings</h2>
+            <button id="closeSettings" class="icon-btn" aria-label="Close">✕</button>
+        </div>
+        <div class="settings-content">
+            <div class="setting">
+                <label for="themeSelect">Theme</label>
+                <select id="themeSelect">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="system">System</option>
+                </select>
+            </div>
+            <div class="setting">
+                <label for="voiceRate">Voice rate</label>
+                <input id="voiceRate" type="range" min="120" max="220" step="10" value="180" />
+            </div>
+            <div class="setting">
+                <label for="backendUrl">Backend URL</label>
+                <input id="backendUrl" type="url" placeholder="http://localhost:8000" />
+            </div>
+            <div class="setting">
+                <button id="saveSettings" class="primary-btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <noscript>Your browser needs JavaScript to use Luna.</noscript>
+    
+</body>
+</html>
+
+
